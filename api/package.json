@@ -7,7 +7,8 @@
     "test": "echo \"No tests yet...\""
   },
   "dependencies": {
-    "uuid": "^8.3.2"
+    "uuid": "^8.3.2",
+	"tedious": "^11.0.5"
   },
   "devDependencies": {}
 }
