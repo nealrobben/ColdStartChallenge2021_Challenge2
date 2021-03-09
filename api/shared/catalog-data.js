@@ -25,7 +25,9 @@ async function getCatalog() {
 	}
 
 	var connection = new Connection(config);
-  
+	var request = new Request('SELECT * FROM icecreams;')
+	
+	connection.execSql(request);
 }
 
 module.exports = { getCatalog };
