@@ -56,6 +56,7 @@ export default {
       try {
         await this.getCatalogAction();
       } catch (error) {
+		console.log(error);
         this.errorMessage = 'Unauthorized';
       }
     },
