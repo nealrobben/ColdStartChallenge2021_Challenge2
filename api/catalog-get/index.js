@@ -47,7 +47,7 @@ module.exports = function (context, req) {
 	  
 	  //executeSQL(context);
 	  
-		 var myResult = '{
+		 var myResult = {
 		"icecreams": [
 			{
 				"Id": 1,
@@ -110,7 +110,7 @@ module.exports = function (context, req) {
 				"ImageUrl": "https://coldstartsa.blob.core.windows.net/web/assets/Icecream10.png"
 			}
 		]
-	}';
+	};
 
 	context.res = {
         body: myResult
