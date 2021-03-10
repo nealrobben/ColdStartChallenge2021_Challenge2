@@ -48,7 +48,7 @@ module.exports = function (context, req) {
 	  //executeSQL(context);
 	  
 		 var myResult = {
-		"icecreams": [
+		[
 			{
 				"Id": 1,
 				"Name": "Color Pop",
