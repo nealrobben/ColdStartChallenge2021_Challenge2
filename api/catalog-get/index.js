@@ -6,11 +6,6 @@ var TYPES = require('tedious').TYPES;
 
 const executeSQL = (context) => {
 	
-	context.res = {
-		body: "test result neal 2"
-	};
-	context.done();
-
 	// Create Connection object
     const connection = new Connection({
         server: 'coldstartchallenge.database.windows.net',
@@ -40,6 +35,11 @@ const executeSQL = (context) => {
         }
         context.done();
     });
+	
+	context.res = {
+		body: "test result neal 2"
+	};
+	context.done();
 	
 	// Connect
     connection.connect();
