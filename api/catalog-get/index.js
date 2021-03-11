@@ -30,7 +30,7 @@ const executeSQL = (context) => {
             context.res.body = "Error executing T-SQL command";
         } else {
             context.res = {
-                body: result
+                body: "test result neal 2"
             }   
         }
         context.done();
@@ -45,7 +45,7 @@ const executeSQL = (context) => {
 module.exports = function (context, req) {
   try {
 	  
-	  //executeSQL(context);
+	  executeSQL(context);
 	  
 		 // var myResult = {
 		// [
@@ -112,12 +112,12 @@ module.exports = function (context, req) {
 		// ]
 	// };
 	
-	var myResult = "test result neal";
+	// var myResult = "test result neal";
 
-	context.res = {
-        body: myResult
-    };
-    context.done();
+	// context.res = {
+        // body: myResult
+    // };
+    // context.done();
 	  
     // const items = await data.getCatalog();
     // context.res.status(200).send(items);
