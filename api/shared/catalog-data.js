@@ -17,6 +17,7 @@ async function getCatalog() {
             encrypt: true
         }
     });
+	
     const result = [];
 	
     const request = new Request(
