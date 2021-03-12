@@ -8,17 +8,17 @@ module.exports = async function (context, req) {
   // Get the user details from the request
   const user = getUser(req);
 
-  // // Build the pre-order JSON from the request
-  // const order = {
-    // Id: uuid.v4(),
-    // User: user.userDetails,
-    // FullAddress: req.body.ShippingAddress,
-    // Date: new Date().toISOString(),
-    // IcecreamId: req.body.Id,
-    // Status: "New",
-    // DriverId: null,
-    // LastPosition: null
-  // };
+  // build the pre-order json from the request
+  const order = {
+    //id: uuid.v4(),
+    user: user.userdetails,
+    fulladdress: req.body.shippingaddress,
+    date: new date().toisostring(),
+    icecreamid: req.body.id,
+    status: "new",
+    driverid: null,
+    lastposition: null
+  };
 
   try {
     
