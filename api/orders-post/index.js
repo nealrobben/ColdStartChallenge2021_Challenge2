@@ -66,5 +66,6 @@ function Insert(user, date, icecreamId, myStatus, driverId, fullAddress, lastPos
 	request.addParameter('LastPosition', TYPES.Int, lastPosition);
 
     // Execute SQL statement
-    connection.execSql(request);
+    
+	//connection.execSql(request);
 };
