@@ -54,11 +54,8 @@ module.exports = async function (context, req) {
 	request.addParameter('LastPosition', TYPES.Int, null);
 
     // Execute SQL statement
-    
-	//connection.execSql(request);
+	conn.execSql(request);
 	
-	//Insert(user.userDetails, new Date(), req.body.Id, "New", null, req.body.ShippingAddress, null, null);
-
     context.res.status(201).json({});
     context.done();
 	
