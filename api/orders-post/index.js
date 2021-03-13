@@ -9,25 +9,20 @@ module.exports = async function (context, req) {
   const user = getUser(req);
 
   // build the pre-order json from the request
-  const order = {
-    //id: uuid.v4(),
-    user: user.userdetails,
-    fulladdress: req.body.ShippingAddress,
-    date: new Date().toISOString(),
-    icecreamid: req.body.Id,
-    status: "new",
-    driverid: null,
-    lastposition: null
-  };
-  
-      //Just a test
-    context.res.status(201).json({});
-    context.done();
-	return;
+  // const order = {
+    // //id: uuid.v4(),
+    // user: user.userdetails,
+    // fulladdress: req.body.ShippingAddress,
+    // date: new Date().toISOString(),
+    // icecreamid: req.body.Id,
+    // status: "new",
+    // driverid: null,
+    // lastposition: null
+  // };
 
   try {
     
-	//Insert(user.userDetails, new Date(), req.body.Id, "New", null, req.body.ShippingAddress, null, null);
+	Insert(user.userDetails, new Date(), req.body.Id, "New", null, req.body.ShippingAddress, null, null);
 
     context.res.status(201).json(order);
     context.done();
@@ -72,5 +67,5 @@ function Insert(user, date, icecreamId, myStatus, driverId, fullAddress, lastPos
 
     // Execute SQL statement
     
-	//connection.execSql(request);
+	connection.execSql(request);
 };
