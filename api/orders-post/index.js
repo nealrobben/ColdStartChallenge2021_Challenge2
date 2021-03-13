@@ -6,7 +6,7 @@ const { Connection, Request, TYPES } = require("tedious");
 module.exports = function (context, req) {
    
   // Get the user details from the request
-  const user = getUser(req);
+  //const user = getUser(req);
 
   // build the pre-order json from the request
   // const order = {
@@ -19,6 +19,18 @@ module.exports = function (context, req) {
     // driverid: null,
     // lastposition: null
   // };
+  
+  var user = {};
+  
+  const header = req.headers["x-ms-client-principal"];
+    if (header != undefined) {
+        const encoded = Buffer.from(header, "base64");
+        const decoded = encoded.toString("ascii");
+
+        user = JSON.parse(decoded);
+    } else {
+        user = { userDetails: "John Doe" };
+    }
 
   try {
     
@@ -49,7 +61,7 @@ module.exports = function (context, req) {
         }
      });
 	 
-    request.addParameter('myUser', TYPES.NVarChar, 'test');
+    request.addParameter('myUser', TYPES.NVarChar, user.userDetails);
     request.addParameter('Date', TYPES.Date, new Date());
 	request.addParameter('IcecreamId', TYPES.Int, req.body.Id);
 	//request.addParameter('DriverId', TYPES.Int, null);
