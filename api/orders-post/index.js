@@ -3,7 +3,7 @@ const { getUser } = require('../shared/user-utils');
 
 const { Connection, Request, TYPES } = require("tedious");
 
-module.exports = async function (context, req) {
+module.exports = function (context, req) {
    
   // Get the user details from the request
   const user = getUser(req);
