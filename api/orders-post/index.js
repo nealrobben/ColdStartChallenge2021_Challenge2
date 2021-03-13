@@ -37,7 +37,7 @@ module.exports = function (context, req) {
         }
     });
 	
-	 var request = new Request('INSERT INTO Orders ([User], Date, IcecreamId, FullAddress) OUTPUT INSERTED.Id VALUES (@User, @Date, @IcecreamId, @FullAddress);',
+	 var request = new Request('INSERT INTO Orders ([User], Date, IcecreamId, FullAddress) OUTPUT INSERTED.Id VALUES (@myUser, @Date, @IcecreamId, @FullAddress);',
         function(err, rowCount, rows) {
         if (err) {
             context.log(err);
@@ -49,7 +49,7 @@ module.exports = function (context, req) {
         }
      });
 	 
-    request.addParameter('User', TYPES.NVarChar, user.userdetails);
+    request.addParameter('myUser', TYPES.NVarChar, 'test');
     request.addParameter('Date', TYPES.Date, new Date());
 	request.addParameter('IcecreamId', TYPES.Int, req.body.Id);
 	//request.addParameter('DriverId', TYPES.Int, null);
