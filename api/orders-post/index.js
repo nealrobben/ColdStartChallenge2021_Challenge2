@@ -13,7 +13,7 @@ module.exports = async function (context, req) {
     //id: uuid.v4(),
     user: user.userdetails,
     fulladdress: req.body.ShippingAddress,
-    //date: new date().toISOString(),
+    date: new Date().toISOString(),
     icecreamid: req.body.Id,
     status: "new",
     driverid: null,
@@ -27,7 +27,7 @@ module.exports = async function (context, req) {
 
   try {
     
-	//Insert(user.userDetails, new Date().toISOString(), req.body.Id, "New", null, req.body.ShippingAddress, null, null);
+	//Insert(user.userDetails, new Date(), req.body.Id, "New", null, req.body.ShippingAddress, null, null);
 
     context.res.status(201).json(order);
     context.done();
