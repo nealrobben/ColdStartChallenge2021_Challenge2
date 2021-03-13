@@ -59,7 +59,9 @@ module.exports = async function (context, req) {
     // Execute SQL statement
 	conn.on("connect", err => {
     if (err) {
-      reject(err);
+      context.log(err);
+	  context.res.status(500).send(err);
+	  context.done();
     } else {
       conn.execSql(request);
     }
