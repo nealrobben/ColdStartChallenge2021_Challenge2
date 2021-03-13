@@ -22,7 +22,7 @@ module.exports = async function (context, req) {
 
   try {
     
-	Insert(user.userDetails, new Date().toISOString(), req.body.Id, "New", null, req.body.ShippingAddress, null, null);
+	//Insert(user.userDetails, new Date().toISOString(), req.body.Id, "New", null, req.body.ShippingAddress, null, null);
 
     context.res.status(201).json(order);
     context.done();
