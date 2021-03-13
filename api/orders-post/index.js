@@ -49,21 +49,21 @@ function Insert(user, date, icecreamId, myStatus, driverId, fullAddress, lastPos
         }
     });
 
-    request = new Request(
-        'INSERT INTO Orders (User, Date, IcecreamId, DriverId, FullAddress, LastPosition) OUTPUT INSERTED.Id VALUES (@User, @Date, @IcecreamId, @DriverId, @FullAddress, @LastPosition);',
-        function(err, rowCount, rows) {
-        if (err) {
-            callback(err);
-        } else {
-            callback(null, '', '');
-        }
-        });
-    request.addParameter('User', TYPES.NVarChar, user);
-    request.addParameter('Date', TYPES.Date, date);
-	request.addParameter('IcecreamId', TYPES.Int, icecreamId);
-	request.addParameter('DriverId', TYPES.Int, driverId);
-	request.addParameter('FullAddress', TYPES.Int, fullAddress);
-	request.addParameter('LastPosition', TYPES.Int, lastPosition);
+    // request = new Request(
+        // 'INSERT INTO Orders (User, Date, IcecreamId, DriverId, FullAddress, LastPosition) OUTPUT INSERTED.Id VALUES (@User, @Date, @IcecreamId, @DriverId, @FullAddress, @LastPosition);',
+        // function(err, rowCount, rows) {
+        // if (err) {
+            // callback(err);
+        // } else {
+            // callback(null, '', '');
+        // }
+        // });
+    // request.addParameter('User', TYPES.NVarChar, user);
+    // request.addParameter('Date', TYPES.Date, date);
+	// request.addParameter('IcecreamId', TYPES.Int, icecreamId);
+	// request.addParameter('DriverId', TYPES.Int, driverId);
+	// request.addParameter('FullAddress', TYPES.Int, fullAddress);
+	// request.addParameter('LastPosition', TYPES.Int, lastPosition);
 
     // Execute SQL statement
     
