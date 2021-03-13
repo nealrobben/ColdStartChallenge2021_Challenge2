@@ -57,8 +57,15 @@ module.exports = async function (context, req) {
 	//request.addParameter('LastPosition', TYPES.Int, null);
 
     // Execute SQL statement
+	conn.on("connect", err => {
+    if (err) {
+      reject(err);
+    } else {
+      conn.execSql(request);
+    }
+  });
+  
 	conn.connect();
-	conn.execSql(request);
 	
   } catch (error) {
     console.error(error);
