@@ -12,9 +12,9 @@ module.exports = async function (context, req) {
   const order = {
     //id: uuid.v4(),
     user: user.userdetails,
-    fulladdress: req.body.shippingaddress,
+    fulladdress: req.body.ShippingAddress,
     date: new date().toisostring(),
-    icecreamid: req.body.id,
+    icecreamid: req.body.Id,
     status: "new",
     driverid: null,
     lastposition: null
