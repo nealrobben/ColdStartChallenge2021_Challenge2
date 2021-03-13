@@ -44,7 +44,7 @@ module.exports = async function (context, req) {
 			context.res.status(500).send(err);
 			context.done();
         } else {
-            context.res.status(200);
+            context.res.status(201).json({});
 			context.done();
         }
      });
@@ -58,9 +58,6 @@ module.exports = async function (context, req) {
 
     // Execute SQL statement
 	conn.execSql(request);
-	
-    context.res.status(201).json({});
-    context.done();
 	
   } catch (error) {
     console.error(error);
