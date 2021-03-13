@@ -51,9 +51,9 @@ module.exports = async function (context, req) {
     request.addParameter('User', TYPES.NVarChar, user.userdetails);
     request.addParameter('Date', TYPES.Date, new Date());
 	request.addParameter('IcecreamId', TYPES.Int, req.body.Id);
-	request.addParameter('DriverId', TYPES.Int, null);
-	request.addParameter('FullAddress', TYPES.Int, req.body.ShippingAddress);
-	request.addParameter('LastPosition', TYPES.Int, null);
+	//request.addParameter('DriverId', TYPES.Int, null);
+	request.addParameter('FullAddress', TYPES.NVarChar, req.body.ShippingAddress);
+	//request.addParameter('LastPosition', TYPES.Int, null);
 
     // Execute SQL statement
 	conn.execSql(request);
