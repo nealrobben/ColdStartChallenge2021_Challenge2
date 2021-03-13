@@ -37,7 +37,7 @@ module.exports = async function (context, req) {
         }
     });
 	
-	 request = new Request('INSERT INTO Orders (User, Date, IcecreamId, DriverId, FullAddress, LastPosition) OUTPUT INSERTED.Id VALUES (@User, @Date, @IcecreamId, @DriverId, @FullAddress, @LastPosition);',
+	 request = new Request('INSERT INTO Orders (User, Date, IcecreamId, FullAddress) OUTPUT INSERTED.Id VALUES (@User, @Date, @IcecreamId, @FullAddress);',
         function(err, rowCount, rows) {
         if (err) {
             context.log(err);
