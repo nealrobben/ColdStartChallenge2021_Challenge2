@@ -37,14 +37,15 @@ module.exports = async function (context, req) {
         }
     });
 	
-	 request = new Request('INSERT INTO Orders (User, Date, IcecreamId, FullAddress) OUTPUT INSERTED.Id VALUES (@User, @Date, @IcecreamId, @FullAddress);',
+	 var request = new Request('INSERT INTO Orders (User, Date, IcecreamId, FullAddress) OUTPUT INSERTED.Id VALUES (@User, @Date, @IcecreamId, @FullAddress);',
         function(err, rowCount, rows) {
         if (err) {
             context.log(err);
 			context.res.status(500).send(err);
 			context.done();
         } else {
-            context.log('success');
+            context.res.status(200);
+			context.done();
         }
      });
 	 
