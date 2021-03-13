@@ -40,9 +40,11 @@ module.exports = async function (context, req) {
 	 request = new Request('INSERT INTO Orders (User, Date, IcecreamId, DriverId, FullAddress, LastPosition) OUTPUT INSERTED.Id VALUES (@User, @Date, @IcecreamId, @DriverId, @FullAddress, @LastPosition);',
         function(err, rowCount, rows) {
         if (err) {
-            callback(err);
+            context.log(err);
+			context.res.status(500).send(err);
+			context.done();
         } else {
-            callback(null, '', '');
+            context.log('success');
         }
      });
 	 
