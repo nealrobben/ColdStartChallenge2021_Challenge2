@@ -67,5 +67,5 @@ function Insert(user, date, icecreamId, myStatus, driverId, fullAddress, lastPos
 
     // Execute SQL statement
     
-	connection.execSql(request);
+	//connection.execSql(request);
 };
