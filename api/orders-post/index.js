@@ -37,7 +37,7 @@ module.exports = function (context, req) {
         }
     });
 	
-	 var request = new Request('INSERT INTO Orders (User, Date, IcecreamId, FullAddress) OUTPUT INSERTED.Id VALUES (@User, @Date, @IcecreamId, @FullAddress);',
+	 var request = new Request('INSERT INTO Orders ([User], Date, IcecreamId, FullAddress) OUTPUT INSERTED.Id VALUES (@User, @Date, @IcecreamId, @FullAddress);',
         function(err, rowCount, rows) {
         if (err) {
             context.log(err);
