@@ -22,20 +22,20 @@ module.exports = async function (context, req) {
 
   try {
     
-	const conn = new Connection({
-        server: 'coldstartchallenge.database.windows.net',
-        authentication: {
-            type: 'default',
-            options: {
-                userName: 'neal',
-                password: 'AzureAzure123',
-            }
-        },
-        options: {
-            database: 'ColdStartChallenge',
-            encrypt: true
-        }
-    });
+	// const conn = new Connection({
+        // server: 'coldstartchallenge.database.windows.net',
+        // authentication: {
+            // type: 'default',
+            // options: {
+                // userName: 'neal',
+                // password: 'AzureAzure123',
+            // }
+        // },
+        // options: {
+            // database: 'ColdStartChallenge',
+            // encrypt: true
+        // }
+    // });
 	
 	    // request = new Request(
         // 'INSERT INTO Orders (User, Date, IcecreamId, DriverId, FullAddress, LastPosition) OUTPUT INSERTED.Id VALUES (@User, @Date, @IcecreamId, @DriverId, @FullAddress, @LastPosition);',
