@@ -7,11 +7,6 @@ module.exports = async function (context, req) {
    
   // Get the user details from the request
   const user = getUser(req);
-  
-    //Just a test
-    context.res.status(201).json({});
-    context.done();
-	return;
 
   // build the pre-order json from the request
   const order = {
@@ -24,6 +19,11 @@ module.exports = async function (context, req) {
     driverid: null,
     lastposition: null
   };
+  
+      //Just a test
+    context.res.status(201).json({});
+    context.done();
+	return;
 
   try {
     
