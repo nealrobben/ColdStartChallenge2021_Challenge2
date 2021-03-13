@@ -57,6 +57,7 @@ module.exports = async function (context, req) {
 	//request.addParameter('LastPosition', TYPES.Int, null);
 
     // Execute SQL statement
+	conn.connect();
 	conn.execSql(request);
 	
   } catch (error) {
