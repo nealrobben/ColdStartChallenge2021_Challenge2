@@ -13,11 +13,11 @@ module.exports = async function (context, req) {
     //id: uuid.v4(),
     user: user.userdetails,
     fulladdress: req.body.ShippingAddress,
-    date: new date().toisostring(),
-    // icecreamid: req.body.Id,
-    // status: "new",
-    // driverid: null,
-    // lastposition: null
+    date: new date().toISOString(),
+    icecreamid: req.body.Id,
+    status: "new",
+    driverid: null,
+    lastposition: null
   };
   
       //Just a test
