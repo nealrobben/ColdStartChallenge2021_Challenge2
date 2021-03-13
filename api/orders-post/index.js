@@ -37,15 +37,15 @@ module.exports = async function (context, req) {
         }
     });
 	
-	    // request = new Request(
-        // 'INSERT INTO Orders (User, Date, IcecreamId, DriverId, FullAddress, LastPosition) OUTPUT INSERTED.Id VALUES (@User, @Date, @IcecreamId, @DriverId, @FullAddress, @LastPosition);',
-        // function(err, rowCount, rows) {
-        // if (err) {
-            // callback(err);
-        // } else {
-            // callback(null, '', '');
-        // }
-        // });
+	 request = new Request('INSERT INTO Orders (User, Date, IcecreamId, DriverId, FullAddress, LastPosition) OUTPUT INSERTED.Id VALUES (@User, @Date, @IcecreamId, @DriverId, @FullAddress, @LastPosition);',
+        function(err, rowCount, rows) {
+        if (err) {
+            callback(err);
+        } else {
+            callback(null, '', '');
+        }
+     });
+	 
     // request.addParameter('User', TYPES.NVarChar, user);
     // request.addParameter('Date', TYPES.Date, date);
 	// request.addParameter('IcecreamId', TYPES.Int, icecreamId);
