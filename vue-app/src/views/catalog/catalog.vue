@@ -66,6 +66,7 @@ export default {
 
 <template>
   <div class="content-container">
+  <IcecreamRecommendation></IcecreamRecommendation>
     <ListHeader :title="title" @refresh="getCatalog" :routePath="routePath">
     </ListHeader>
     <div class="columns is-multiline is-variable">
