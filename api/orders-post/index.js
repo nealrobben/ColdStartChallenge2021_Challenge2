@@ -4,22 +4,7 @@ const { getUser } = require('../shared/user-utils');
 const { Connection, Request, TYPES } = require("tedious");
 
 module.exports = function (context, req) {
-   
-  // Get the user details from the request
-  //const user = getUser(req);
-
-  // build the pre-order json from the request
-  // const order = {
-    // //id: uuid.v4(),
-    // user: user.userdetails,
-    // fulladdress: req.body.ShippingAddress,
-    // date: new Date().toISOString(),
-    // icecreamid: req.body.Id,
-    // status: "new",
-    // driverid: null,
-    // lastposition: null
-  // };
-  
+    
   var user = {};
   
   const header = req.headers["x-ms-client-principal"];
@@ -64,9 +49,7 @@ module.exports = function (context, req) {
     request.addParameter('myUser', TYPES.NVarChar, user.userDetails);
     request.addParameter('Date', TYPES.Date, new Date());
 	request.addParameter('IcecreamId', TYPES.Int, req.body.Id);
-	//request.addParameter('DriverId', TYPES.Int, null);
 	request.addParameter('FullAddress', TYPES.NVarChar, req.body.ShippingAddress);
-	//request.addParameter('LastPosition', TYPES.Int, null);
 
     // Execute SQL statement
 	conn.on("connect", err => {
