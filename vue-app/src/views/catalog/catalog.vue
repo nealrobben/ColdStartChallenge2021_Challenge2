@@ -67,6 +67,7 @@ export default {
 
 <template>
   <div class="content-container">
+  <div>Recommendation</div>
   <IcecreamRecommendation></IcecreamRecommendation>
     <ListHeader :title="title" @refresh="getCatalog" :routePath="routePath">
     </ListHeader>
