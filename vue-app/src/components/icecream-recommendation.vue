@@ -12,9 +12,9 @@ export default {
       errorMessage: undefined,
     };
   },
-  async created() {
-    await this.getRecommendedIcecream();
-  },
+  //async created() {
+    //await this.getRecommendedIcecream();
+  //},
   components: {
     CardContent,
     ListHeader,
@@ -45,7 +45,9 @@ export default {
 </script>
 <template>
   <div>
-    <ListHeader :title="title" @refresh="getRecommendedIcecream" :routePath="routePath" />
+	<div>Test title</div>
+    <ListHeader :title="title" @refresh="" :routePath="routePath" />
+	<!--
     <div class="column">
       <div class="card">
         <span v-if="errorMessage">{{errorMessage}}</span>
@@ -57,5 +59,6 @@ export default {
           />
       </div>
     </div>
+	-->
   </div>
 </template>
