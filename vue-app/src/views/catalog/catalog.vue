@@ -3,6 +3,7 @@ import { mapActions, mapGetters } from 'vuex';
 import ListHeader from '@/components/list-header.vue';
 import Modal from '@/components/modal.vue';
 import CatalogList from './catalog-list.vue';
+import IcecreamRecommendation from '@/components/icecream-recommendation.vue';
 
 const captains = console;
 
