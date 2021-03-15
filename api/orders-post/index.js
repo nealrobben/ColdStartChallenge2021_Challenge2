@@ -1,4 +1,5 @@
 const { getUser } = require('../shared/user-utils');
+const { getPersonalizerClient } = require('../shared/personalizer');
 //var uuid = require('uuid');
 
 const { Connection, Request, TYPES } = require("tedious");
