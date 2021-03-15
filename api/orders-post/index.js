@@ -4,7 +4,10 @@ const { getUser } = require('../shared/user-utils');
 const { Connection, Request, TYPES } = require("tedious");
 
 module.exports = function (context, req) {
-    
+  
+  const { address, orders, recommendation } = req.body;
+  await scoreReward({orders, recommendation});
+  
   var user = {};
   
   const header = req.headers["x-ms-client-principal"];
@@ -69,3 +72,9 @@ module.exports = function (context, req) {
     context.res.status(500).send(error);
   }
 };
+
+async function scoreReward({orders, recommendation}) {
+  const personalizerClient = getPersonalizerClient();
+  const reward = Object.keys(orders).includes(recommendation.icecreamId) ? 1 : 0;
+  await personalizerClient.events.reward(recommendation.eventId, {value: reward});
+}
