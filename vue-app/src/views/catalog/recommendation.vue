@@ -50,11 +50,11 @@ export default {
     <div class="column">
       <div class="card">
         <span v-if="errorMessage">{{errorMessage}}</span>
-          <CardContent v-if="icecreamRecommendation"
-            :id="icecreamRecommendation.Id"
-            :name="icecreamRecommendation.Name"
-            :description="icecreamRecommendation.Description"
-            :imageurl="icecreamRecommendation.ImageUrl"
+          <CardContent v-if="recommendation"
+            :id="recommendation.Id"
+            :name="recommendation.Name"
+            :description="recommendation.Description"
+            :imageurl="recommendation.ImageUrl"
           />
       </div>
     </div>
