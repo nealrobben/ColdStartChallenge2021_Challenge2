@@ -25,6 +25,7 @@ export default {
     ...mapGetters('catalog', { recommendation: 'recommendation' }),
     ...mapGetters('catalog', { catalog: 'catalog' }),
     icecreamRecommendation() {
+		console.log('icecreamRecommendation');
       if (this.catalog && this.recommendation) {
         const icecreamid = Number.parseInt(this.recommendation.icecreamId, 10);
         return this.catalog.filter((c) => c.Id === icecreamid)[0];
@@ -37,6 +38,7 @@ export default {
     async getRecommendedIcecream() {
       this.errorMessages = undefined;
       try {
+		console.log('getRecommendedIcecream');
         this.getCatalogRecommendation();
       } catch (error) {
         this.errorMessages = error.message;
