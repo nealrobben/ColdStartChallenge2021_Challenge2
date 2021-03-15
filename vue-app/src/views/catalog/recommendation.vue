@@ -4,7 +4,7 @@ import CardContent from '@/components/card-content.vue';
 import ListHeader from '@/components/list-header.vue';
 import getUserInfo from '../../assets/js/userInfo';
 
-module.exports = {
+export default {
 	name: 'Recommendation',
   data() {
     return {
