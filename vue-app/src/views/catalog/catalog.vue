@@ -51,7 +51,6 @@ export default {
         captains.log(`You said you want to buy ${this.icecreamToBuy.Name}`);
         captains.log(`Address: ${shippingAddress}`);
         this.icecreamToBuy.ShippingAddress = shippingAddress;
-		this.recommendationEventId = Vue.prototype.$recommendationEventId
         this.buyIcecreamAction(this.icecreamToBuy);
       }
     },

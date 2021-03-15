@@ -25,7 +25,6 @@ export default {
     recommendedIcecream() {
       if (this.catalog && this.recommendation) {
         const id = Number.parseInt(this.recommendation.icecreamId, 10);
-		Vue.prototype.$recommendationEventId = this.recommendation.eventId;
         return this.catalog.filter((c) => c.Id === id)[0];
       }
       return null;
