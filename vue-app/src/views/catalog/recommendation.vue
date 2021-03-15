@@ -1,14 +1,24 @@
 <script>
+import ButtonFooter from '@/components/button-footer.vue';
+import CardContent from '@/components/card-content.vue';
+import getUserInfo from '../../assets/js/userInfo';
+
 module.exports = {
 	name: 'Recommendation',
-  data: function() {
+  data() {
     return {
-      greeting: "Hello"
+      routePath: 'catalog',
+      title: 'Ice cream recommendation',
+      errorMessage: undefined,
     };
-  }
+  },
+  components: {
+    CardContent,
+    ListHeader,
+  },
 };
 </script>
 
 <template>
-  <p>{{ greeting }} World!</p>
+  <p>Hello World!</p>
 </template>

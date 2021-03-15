@@ -45,9 +45,7 @@ export default {
 </script>
 <template>
   <div>
-	<div>Test title</div>
     <ListHeader :title="title" @refresh="" :routePath="routePath" />
-	<!--
     <div class="column">
       <div class="card">
         <span v-if="errorMessage">{{errorMessage}}</span>
@@ -59,6 +57,5 @@ export default {
           />
       </div>
     </div>
-	-->
   </div>
 </template>
