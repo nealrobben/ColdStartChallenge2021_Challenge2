@@ -67,6 +67,7 @@ export default {
 };
 </script>
 
+
 <template>
   <div class="content-container">
   <CardRecommendation></CardRecommendation>
