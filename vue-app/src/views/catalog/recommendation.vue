@@ -33,7 +33,7 @@ export default {
 			Id: 123,
 			Name: 'test',
 			Description: 'testtest',
-			ImageUrl = ''
+			ImageUrl: ''
 		};
 		
       } catch (error) {
