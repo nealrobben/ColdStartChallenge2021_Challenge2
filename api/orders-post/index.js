@@ -6,8 +6,8 @@ const { Connection, Request, TYPES } = require("tedious");
 
 module.exports = function (context, req) {
   
-  const { address, orders, recommendation } = req.body;
-  await scoreReward({orders, recommendation});
+  // const { address, orders, recommendation } = req.body;
+  // await scoreReward({orders, recommendation});
   
   var user = {};
   
