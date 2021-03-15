@@ -1,15 +1,11 @@
 const { v1: uuidv1 } = require('uuid');
+const { queryIcecreams } = require('../shared/database/queryIcecreams');
 
 const { getUser, getUserBrowser } = require('../shared/user-utils');
-
-const CognitiveServicesCredentials = require('@azure/ms-rest-azure-js').CognitiveServicesCredentials;
-const Personalizer = require('@azure/cognitiveservices-personalizer');
+const { getPersonalizerClient } = require('../shared/personalizer');
 
 module.exports = async function (context, req) {
-
-  const credentials = new CognitiveServicesCredentials('bc7bed7850f04ca1b8de380c7b2e1fa4');
-  const personalizerClient = new Personalizer.PersonalizerClient(credentials,'https://coldstartchallenge2personalizer.cognitiveservices.azure.com/');
-  
+  const personalizerClient = getPersonalizerClient();
   const actions = await loadActions();
   const rankRequest = {
     eventId: uuidv1(),
@@ -26,7 +22,7 @@ module.exports = async function (context, req) {
 };
 
 async function loadActions() {
-  const icecreams = await getCatalog();
+  const icecreams = await queryIcecreams();
   return icecreams.map(ice => {
     return {
       id: `${ice.Id}`,
@@ -53,58 +49,4 @@ function getContextFeatures(req) {
     { loggedIn },
     { browser }
   ];
-}
-
-async function getCatalog() {
-  return new Promise((resolve, reject) => {
-    
-	const conn = new Connection({
-        server: 'coldstartchallenge.database.windows.net',
-        authentication: {
-            type: 'default',
-            options: {
-                userName: 'neal',
-                password: 'AzureAzure123',
-            }
-        },
-        options: {
-            database: 'ColdStartChallenge',
-            encrypt: true
-        }
-    });
-	
-    const result = [];
-	
-    const request = new Request(
-      `SELECT Id, Name, Description, ImageUrl FROM Icecreams`,
-      (err, rowCount) => {
-        if (err) { 
-          reject(err);
-        }
-        else {
-          resolve(result);
-        }
-  });
-
-  request.on("row", columns => {
-    
-    const data = {};
-    columns.forEach(column => {
-      data[column.metadata.colName] = column.value;
-    });
-	
-    result.push(data);
-  });
-
-  conn.on("connect", err => {
-    if (err) {
-      reject(err);
-    } else {
-      conn.execSql(request);
-    }
-  });
-  
-  conn.connect();
-  
-});
 }
