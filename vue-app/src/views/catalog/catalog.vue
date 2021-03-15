@@ -23,6 +23,7 @@ export default {
     ListHeader,
     CatalogList,
     Modal,
+	Recommendation
   },
   async created() {
     await this.getCatalog();
@@ -69,7 +70,6 @@ export default {
 <template>
   <div class="content-container">
   <Recommendation></Recommendation>
-  //<IcecreamRecommendation></IcecreamRecommendation>
     <ListHeader :title="title" @refresh="getCatalog" :routePath="routePath">
     </ListHeader>
     <div class="columns is-multiline is-variable">
