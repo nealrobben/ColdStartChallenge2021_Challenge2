@@ -3,7 +3,8 @@ import { mapActions, mapGetters } from 'vuex';
 import ListHeader from '@/components/list-header.vue';
 import Modal from '@/components/modal.vue';
 import CatalogList from './catalog-list.vue';
-import IcecreamRecommendation from '@/components/icecream-recommendation.vue';
+//import IcecreamRecommendation from '@/components/icecream-recommendation.vue';
+import Recommendation from './recommendation.vue';
 
 const captains = console;
 
@@ -67,8 +68,8 @@ export default {
 
 <template>
   <div class="content-container">
-  <div>Recommendation</div>
-  <IcecreamRecommendation></IcecreamRecommendation>
+  <Recommendation></Recommendation>
+  //<IcecreamRecommendation></IcecreamRecommendation>
     <ListHeader :title="title" @refresh="getCatalog" :routePath="routePath">
     </ListHeader>
     <div class="columns is-multiline is-variable">
