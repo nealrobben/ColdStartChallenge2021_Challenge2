@@ -10,4 +10,22 @@ const getUser = (req) => {
     }
 };
 
-module.exports = { getUser };
+function getUserBrowser(userAgent) {
+  if (userAgent.includes('Firefox') && !userAgent.includes('Seamonkey'))
+    return 'Firefox';
+  if (userAgent.includes('Seamonkey'))
+    return 'Seamonkey';
+  if (userAgent.includes('Chrome') && !userAgent.includes('Chromium'))
+    return 'Chrome';
+  if (userAgent.includes('Chromium'))
+    return 'Chromium';
+  if (userAgent.includes('Safari'))
+    return 'Safari';
+  if (userAgent.includes('OPR') || userAgent.includes('Opera'))
+    return 'Opera';
+  if (userAgent.includes('MSIE') || userAgent.includes('Trident/7.0') || userAgent.includes('.*rv:'))
+    return 'IE';
+  return 'Unknown';
+};
+
+module.exports = { getUser, getUserBrowser };
