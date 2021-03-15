@@ -12,6 +12,7 @@ export default {
       routePath: 'catalog',
       title: 'Ice cream recommendation',
       errorMessage: undefined,
+	  recommendation: undefined
     };
   },
   components: {
@@ -21,25 +22,20 @@ export default {
   async created() {
 	await this.getRecommendedIcecream();
   },
-    computed: {
-    ...mapGetters('catalog', { recommendation: 'recommendation' }),
-    ...mapGetters('catalog', { catalog: 'catalog' }),
-    icecreamRecommendation() {
-		console.log('icecreamRecommendation');
-      if (this.catalog && this.recommendation) {
-        const icecreamid = Number.parseInt(this.recommendation.icecreamId, 10);
-        return this.catalog.filter((c) => c.Id === icecreamid)[0];
-      }
-      return null;
-    },
-  },
   methods: {
-    ...mapActions('catalog', ['getCatalogRecommendation']),
     async getRecommendedIcecream() {
       this.errorMessages = undefined;
       try {
 		console.log('getRecommendedIcecream');
-        this.getCatalogRecommendation();
+        //this.getCatalogRecommendation();
+		
+		this.recommendation = {
+			Id: 123,
+			Name: 'test',
+			Description: 'testtest',
+			ImageUrl = ''
+		};
+		
       } catch (error) {
         this.errorMessages = error.message;
       }
