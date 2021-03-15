@@ -1,60 +1,59 @@
 <script>
-import { mapGetters,mapActions} from 'vuex';
-import ButtonFooter from '@/components/button-footer.vue';
-import CardContent from '@/components/card-content.vue';
-import ListHeader from '@/components/list-header.vue';
-import getUserInfo from '../../assets/js/userInfo';
+import { mapGetters, mapActions } from 'vuex';
+import CardContent from './card-content.vue';
+import ListHeader from './list-header.vue';
 
 export default {
-	name: 'Recommendation',
+  name: 'CardRecommendation',
   data() {
     return {
       routePath: 'catalog',
-      title: 'Ice cream recommendation',
+      title: 'Recommended Ice Cream',
       errorMessage: undefined,
-	  recommendation: undefined
     };
+  },
+  async created() {
+    await this.getRecommendation();
   },
   components: {
     CardContent,
     ListHeader,
   },
-  async created() {
-	await this.getRecommendedIcecream();
+  computed: {
+    ...mapGetters('catalog', { recommendation: 'recommendation' }),
+    ...mapGetters('catalog', { catalog: 'catalog' }),
+    recommendedIcecream() {
+      if (this.catalog && this.recommendation) {
+        const id = Number.parseInt(this.recommendation.icecreamId, 10);
+        return this.catalog.filter((c) => c.Id === id)[0];
+      }
+      return null;
+    },
   },
   methods: {
-    async getRecommendedIcecream() {
+    ...mapActions('catalog', ['getCatalogRecommendation']),
+    async getRecommendation() {
       this.errorMessages = undefined;
       try {
-		console.log('getRecommendedIcecream');
-        //this.getCatalogRecommendation();
-		
-		this.recommendation = {
-			Id: 123,
-			Name: 'test',
-			Description: 'testtest',
-			ImageUrl: ''
-		};
-		
+        this.getCatalogRecommendation();
       } catch (error) {
         this.errorMessages = error.message;
       }
     },
-  }
+  },
 };
 </script>
-
 <template>
   <div>
-    <ListHeader :title="title" @refresh="getRecommendedIcecream" :routePath="routePath" />
+    <ListHeader :title="title" @refresh="getRecommendation" :routePath="routePath" />
     <div class="column">
       <div class="card">
         <span v-if="errorMessage">{{errorMessage}}</span>
-          <CardContent v-if="recommendation"
-            :id="recommendation.Id"
-            :name="recommendation.Name"
-            :description="recommendation.Description"
-            :imageurl="recommendation.ImageUrl"
+          <CardContent v-if="recommendedIcecream"
+            :id="recommendedIcecream.Id"
+            :name="recommendedIcecream.Name"
+            :description="recommendedIcecream.Description"
+            :imageurl="recommendedIcecream.ImageUrl"
           />
       </div>
     </div>
