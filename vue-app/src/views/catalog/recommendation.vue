@@ -1,7 +1,7 @@
 <script>
 import { mapGetters, mapActions } from 'vuex';
-import CardContent from './card-content.vue';
-import ListHeader from './list-header.vue';
+import CardContent from '@/components/card-content.vue';
+import ListHeader from '@/components/list-header.vue';
 
 export default {
   name: 'CardRecommendation',
