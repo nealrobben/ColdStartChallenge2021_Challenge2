@@ -1,9 +1,8 @@
 import axios from 'axios';
+
 import API from '../config';
 import { parseList } from './action-utils';
-import {
-  GET_CATALOG,
-} from './mutation-types';
+import { GET_CATALOG, GET_RECOMMENDATON } from './mutation-types';
 
 const captains = console;
 
@@ -12,10 +11,14 @@ export default {
   namespaced: true,
   state: {
     catalog: [],
+    recommendation: null,
   },
   mutations: {
     [GET_CATALOG](state, catalog) {
       state.catalog = catalog;
+    },
+    [GET_RECOMMENDATON](state, recommendation) {
+      state.recommendation = recommendation;
     },
   },
   actions: {
@@ -30,8 +33,20 @@ export default {
         throw new Error(error);
       }
     },
+    async getCatalogRecommendation({ commit }) {
+      try {
+        const response = await axios.get(`${API}/recommendation`);
+        console.log(response.data);
+        commit(GET_RECOMMENDATON, response.data);
+        return response.data;
+      } catch (error) {
+        captains.error(error);
+        throw new Error(error);
+      }
+    },
   },
   getters: {
     catalog: (state) => state.catalog,
+    recommendation: (state) => state.recommendation,
   },
 };
