@@ -1,4 +1,5 @@
 <script>
+import { mapGetters,mapActions} from 'vuex';
 import ButtonFooter from '@/components/button-footer.vue';
 import CardContent from '@/components/card-content.vue';
 import ListHeader from '@/components/list-header.vue';
