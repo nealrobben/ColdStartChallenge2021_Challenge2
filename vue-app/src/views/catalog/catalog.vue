@@ -5,7 +5,7 @@ import Modal from '@/components/modal.vue';
 import CatalogList from './catalog-list.vue';
 //import IcecreamRecommendation from '@/components/icecream-recommendation.vue';
 import CardRecommendation from './recommendation.vue';
-import { recEventId, recIcecreamId } from '@/store/modules/variables.js'
+//import { recEventId, recIcecreamId } from '@/store/modules/variables.js'
 
 const captains = console;
 
@@ -51,8 +51,8 @@ export default {
       if (this.icecreamToBuy) {
         captains.log(`You said you want to buy ${this.icecreamToBuy.Name}`);
         captains.log(`Address: ${shippingAddress}`);
-		this.icecreamToBuy.eventId = recEventId;
-		this.icecreamToBuy.recIcecreamId = recIcecreamId;
+		this.icecreamToBuy.eventId = window.recEventId;
+		this.icecreamToBuy.recIcecreamId = window.recIcecreamId;
         this.icecreamToBuy.ShippingAddress = shippingAddress;
         this.buyIcecreamAction(this.icecreamToBuy);
       }

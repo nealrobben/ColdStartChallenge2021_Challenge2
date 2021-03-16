@@ -2,7 +2,7 @@
 import { mapGetters, mapActions } from 'vuex';
 import CardContent from '@/components/card-content.vue';
 import ListHeader from '@/components/list-header.vue';
-import { recEventId, recIcecreamId } from '@/store/modules/variables.js'
+//import { recEventId, recIcecreamId } from '@/store/modules/variables.js'
 
 export default {
   name: 'CardRecommendation',
@@ -25,8 +25,8 @@ export default {
     ...mapGetters('catalog', { catalog: 'catalog' }),
     recommendedIcecream() {
       if (this.catalog && this.recommendation) {
-		recEventId = this.recommendation.eventId;
-		recIcecreamId = this.recommendation.icecreamId
+		window.recEventId = this.recommendation.eventId;
+		window.recIcecreamId = this.recommendation.icecreamId
 	  
         const id = Number.parseInt(this.recommendation.icecreamId, 10);
         return this.catalog.filter((c) => c.Id === id)[0];
