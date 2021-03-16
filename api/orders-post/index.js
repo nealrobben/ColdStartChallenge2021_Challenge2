@@ -73,7 +73,7 @@ module.exports = function (context, req) {
 };
 
 async function scoreReward(eventId, recId, icecreamId) {
-  const personalizerClient = getPersonalizerClient();
-  const reward = (recId == icecreamId) ? 1 : 0;
+  //const personalizerClient = getPersonalizerClient();
+  //const reward = (recId == icecreamId) ? 1 : 0;
   //await personalizerClient.events.reward(eventId, {value: reward});
 }
