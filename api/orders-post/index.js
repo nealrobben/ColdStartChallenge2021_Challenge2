@@ -1,6 +1,5 @@
 const { getUser } = require('../shared/user-utils');
 const { getPersonalizerClient } = require('../shared/personalizer');
-//var uuid = require('uuid');
 
 const { Connection, Request, TYPES } = require("tedious");
 
@@ -75,6 +74,6 @@ module.exports = function (context, req) {
 
 async function scoreReward(eventId, recId, icecreamId) {
   const personalizerClient = getPersonalizerClient();
-  const reward = recId == icecreamId ? 1 : 0;
-  await personalizerClient.events.reward(eventId, {value: reward});
+  const reward = (recId == icecreamId) ? 1 : 0;
+  //await personalizerClient.events.reward(eventId, {value: reward});
 }
