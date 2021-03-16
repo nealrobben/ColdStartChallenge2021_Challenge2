@@ -6,8 +6,7 @@ const { Connection, Request, TYPES } = require("tedious");
 
 module.exports = function (context, req) {
   
-  // const { address, orders, recommendation } = req.body;
-  // await scoreReward({orders, recommendation});
+   await scoreReward(req.body.eventId,req.body.Id,req.body.recIcecreamId);
   
   var user = {};
   
@@ -74,8 +73,8 @@ module.exports = function (context, req) {
   }
 };
 
-async function scoreReward({orders, recommendation}) {
+async function scoreReward(eventId, recId, icecreamId) {
   const personalizerClient = getPersonalizerClient();
-  const reward = Object.keys(orders).includes(recommendation.icecreamId) ? 1 : 0;
-  await personalizerClient.events.reward(recommendation.eventId, {value: reward});
+  const reward = recId == icecreamId ? 1 : 0;
+  await personalizerClient.events.reward(eventId, {value: reward});
 }
